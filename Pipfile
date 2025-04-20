@@ -11,8 +11,14 @@ langsmith = "*"
 langchain-openai = "*"
 pypdf = "*"
 langchain-community = "*"
+langchain-unstructured = "*"
+matplotlib = "*"
+pillow = "*"
+fitz = "*"
+pymupdf = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.12"

@@ -7,11 +7,11 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 file_path = (
-    "./Protegrity 9.1.0.5.8 Documentation/Master Index Document 9.1.0.5.pdf"
+    "../Protegrity 9.1.0.5.8 Documentation/Master Index Document 9.1.0.5.pdf"
 )
 
 file_path2 = (
-    "./Protegrity 9.1.0.5.8 Documentation/Other Guides/Installation Guide 9.1.0.5.pdf"
+    "../Protegrity 9.1.0.5.8 Documentation/Other Guides/Installation Guide 9.1.0.5.pdf"
 )
 
 # Simple and Fast test Extraction
@@ -38,7 +38,7 @@ async def load_pages():
 pages = asyncio.run(load_pages())
 
 # for page in pages:
-#     with open("./master_index_document.md", mode="a") as file:
+#     with open("./Simple PyPDFLoader/Splits/master_index_document.md", mode="a") as file:
 #         file.write("------------------------------------------------")
 #         file.write("------------------------------------------------\n")
 #         file.write(f"{page}\n")
@@ -63,6 +63,3 @@ docs = vector_store.similarity_search("Protection Methods?", k=5)
 
 for doc in docs:
     pprint(f"Page {doc.metadata["page"]}: {doc.page_content[:300]}\n")
-
-
-
