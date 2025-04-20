@@ -72,3 +72,32 @@ for doc in first_page_docs:
 # % % 
 render_page(doc_list=docs, file_path=file_path, page_number=8)
 
+# More information on extracting the text from images, extract text from a specific section of a pdf, etc. on how to do it is present 
+# in this link: https://python.langchain.com/docs/how_to/document_loader_pdf/ and below that implementation is also added
+
+
+# Extracting text from specific sections
+render_page(doc_list=docs, file_path=file_path, page_number=5, print_text=False)  # Here, we are extracting text present in 
+# "Sections contained in this Guide". This works by identifying the category and then exact name of the title text (page_content)
+# then element_id of that title is extracted and all the documents with this parent_id is the text you want.
+
+sections = []
+parent_id = -1
+for doc in docs:
+    if doc.metadata["category"] == "Title" and "1.1 Sections contained in this Guide" in doc.page_content:
+        parent_id = doc.metadata["element_id"]
+    if doc.metadata.get("parent_id") == parent_id:
+        sections.append(doc)
+
+for doc in sections:
+    print(doc.page_content)
+
+
+
+# Extracting Text from images (Since there are no images in the document not customizing it, here is the code as it is as found in the 
+# langchain documentation link)
+render_page(docs, 11)
+
+
+
+
