@@ -16,6 +16,7 @@ matplotlib = "*"
 pillow = "*"
 fitz = "*"
 pymupdf = "*"
+unstructured = {extras = ["pdf"], version = "*"}
 
 [dev-packages]
 ipykernel = "*"
